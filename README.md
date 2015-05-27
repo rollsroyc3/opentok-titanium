@@ -14,7 +14,7 @@ Since I actively maintain a Titanium application that uses this module, I will c
 
 ## Installation
 
-### iOS
+#### iOS
 
 1. Despite having multiple examples, I couldn't ever get it to work such that I could pass the Opentok API key from Titanium JavaScript to the Opentok iOS module (I'm sure it's something trivial, but I haven't felt like revisiting it). As such, `ComTokboxTiOpentokSessionProxy.m` needs to be updated with your API key. Do a search for `YOUR_API_KEY_HERE`, and replace it in two spots. If this issue can get resolved, I'll create a distribution archive for those who aren't up for building this themselves.
 2. Download the latest [Opentok iOS SDK](https://tokbox.com/opentok/libraries/client/ios/) (2.5.0 as of this writing) and include `OpenTok.framework` in the root folder.
@@ -23,9 +23,9 @@ Since I actively maintain a Titanium application that uses this module, I will c
 5. Extract the archive to your Titanium project's modules folder.
 6. Add the module in your Titanium project's tiapp.xml file.
 
-### Android
+#### Android
 
-1. Download the latest [Opentok Android SDK](https://tokbox.com/opentok/libraries/client/android/) (2.5.0 as of this writing), and copy the libs folder to your root directory. Move `opentok-android-sdk-2.5.0.jar` to the lib folder, and create a new folder called `armeabi-v7a` in the `libs` folder. Copy the contents of `armeabi' into `armeabi-v7a'.
+1. Download the latest [Opentok Android SDK](https://tokbox.com/opentok/libraries/client/android/) (2.5.0 as of this writing), and copy the libs folder to your root directory. Move `opentok-android-sdk-2.5.0.jar` to the lib folder, and create a new folder called `armeabi-v7a` in the `libs` folder. Copy the contents of `armeabi` into `armeabi-v7a`.
 2. Open `build.properties` and update the paths to wherever you have those things installed to. You may also need to change the Android SDK version, Titanium version, and Android NDK version, depending on what you have installed.
 3. Run `ant` from the terminal.
 4. Extract the archive to your Titanium project's modules folder.
