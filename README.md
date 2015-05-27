@@ -25,7 +25,7 @@ Since I actively maintain a Titanium application that uses this module, I will c
 
 #### Android
 
-1. Download the latest [Opentok Android SDK](https://tokbox.com/opentok/libraries/client/android/) (2.5.0 as of this writing), and copy the libs folder to your root directory. Move `opentok-android-sdk-2.5.0.jar` to the lib folder, and create a new folder called `armeabi-v7a` in the `libs` folder. Copy the contents of `armeabi` into `armeabi-v7a`.
+1. If you don't want to build yourself, you can download the archive [here](https://github.com/jwcao/opentok-titanium/releases/download/v1.0.0_Android/com.tokbox.ti.opentok-android-1.0.0.zip) and skip to step 4. Alternatively, download the latest [Opentok Android SDK](https://tokbox.com/opentok/libraries/client/android/) (2.5.0 as of this writing), and copy the libs folder to your root directory. Move `opentok-android-sdk-2.5.0.jar` to the lib folder, and create a new folder called `armeabi-v7a` in the `libs` folder. Copy the contents of `armeabi` into `armeabi-v7a`.
 2. Open `build.properties` and update the paths to wherever you have those things installed to. You may also need to change the Android SDK version, Titanium version, and Android NDK version, depending on what you have installed.
 3. Run `ant` from the terminal.
 4. Extract the archive to your Titanium project's modules folder.
