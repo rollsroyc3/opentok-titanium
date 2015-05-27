@@ -1,94 +1,146 @@
-opentok-titanium-mobile
-================
-A module for the Titanium Mobile platform that uses the Opentok iOS SDK for video streaming capabilities.
+# opentok-titanium-mobile
 
-Installation
-------------
-1.  Download the latest release from the [Releases](https://github.com/opentok/opentok-titanium-mobile/releases) page.
+A module for the Titanium Mobile platform that uses the Opentok iOS and Android SDKs for video streaming.
 
-2.  Move the zip file (`com.tokbox.ti.opentok-iphone-x.x.x.zip`) to your application directory, and unzip it
-    (e.g. `unzip com.tokbox.ti.opentok-iphone-x.x.x.zip`). The module should now be placed inside the
-    `AppRoot/modules/iphone/com.tokbox.ti.opentok/x.x.x/` directory.
+## Background Information
 
-Building
-------------
-If you want to build the code on your own, follow these instructions. If you just want to use the module, scroll down to Usage.
+This module was originally created by Ankur Oberoi, a member of the Opentok team. He did all the hard work creating the iOS module, but he's been unable to maintain it over the last couple years, and his original work is very outdated and no longer works. This fork gets it working with the latest version of the Opentok iOS SDK, and also adds support for Android using the latest Android SDK.
 
-1.  Clone or download the repo, run `./build.py` in the directory
+The Android module is something I wrote when I was a fairly new developer, and while it works fine, it could probably stand to be refactored in some areas. I attempted to get its functionality as close to the iOS module as possible, but there are a couple areas where you'll need to make platform specific calls.
 
-2.  Copy the zip (`com.tokbox.ti.opentok-iphone-x.x.zip`) to your Titanium installation directory:
-    `cp com.tokbox.ti.opentok-iphone-x.x.zip ~/Library/Application\ Support/Titanium/`.
+The iOS module is something I've just hacked together to work with the newer versions of Opentok and Titanium. I have zero Objective-C experience outside of tinkering with this, and I have no desire to learn it. As such, the iOS module is a bit of a mess, and could definitely stand to be refactored if anyone with more Objective-C experience wants to tackle it.
 
-Usage
------
-1.  Declare the module and the asset path in in your `tiapp.xml` file:
-    NOTE: the version attribute of the module tag should match the release you downloaded.
+Since I actively maintain a Titanium application that uses this module, I will continue to update it as new versions of Titanium and Opentok call for it. But again, my main focus is just to keep it working at this point, not to make it a paragon of clean code and best practices. If anyone wants to actively contribute and improve upon it, please do.
 
-    ```xml
-    <modules>
-      <module version="x.x.x">com.tokbox.ti.opentok</module>
-    </modules>
-    <ios>
-      <plist>
-        <dict>
-          <key>OTAssetBundlePath</key>
-          <string>modules/com.tokbox.ti.opentok</string>
-        </dict>
-      </plist>
-    </ios>
-    ```
+## Installation
 
-2.  Load the module in your application
+### iOS
 
-    ```javascript
-    var opentok = require('com.tokbox.ti.opentok');
-    ```
+1. Despite having multiple examples, I couldn't ever get it to work such that I could pass the Opentok API key from Titanium JavaScript to the Opentok iOS module (I'm sure it's something trivial, but I haven't felt like revisiting it). As such, `ComTokboxTiOpentokSessionProxy.m` needs to be updated with your API key. Do a search for `YOUR_API_KEY_HERE`, and replace it in two spots. If this issue can get resolved, I'll create a distribution archive for those who aren't up for building this themselves.
+2. Download the latest [Opentok iOS SDK](https://tokbox.com/opentok/libraries/client/ios/) (2.5.0 as of this writing) and include `OpenTok.framework` in the root folder.
+3. If you do not have Titanium SDK 3.5.1, open `titanium.xcconfig` and change 3.5.1 to the version you have. You probably need to at least build with 3.5.0 though, since that's when the x64 stuff happened.
+4. Run `./build.py` from the terminal.
+5. Extract the archive to your Titanium project's modules folder.
+6. Add the module in your Titanium project's tiapp.xml file.
+
+### Android
+
+1. Download the latest [Opentok Android SDK](https://tokbox.com/opentok/libraries/client/android/) (2.5.0 as of this writing), and copy the libs folder to your root directory. Move `opentok-android-sdk-2.5.0.jar` to the lib folder, and create a new folder called `armeabi-v7a` in the `libs` folder. Copy the contents of `armeabi' into `armeabi-v7a'.
+2. Open `build.properties` and update the paths to wherever you have those things installed to. You may also need to change the Android SDK version, Titanium version, and Android NDK version, depending on what you have installed.
+3. Run `ant` from the terminal.
+4. Extract the archive to your Titanium project's modules folder.
+5. Add the module in your Titanium project's tiapp.xml file.
+
+## Basic Usage
+
+```javascript
+
+var opentok = require('com.tokbox.ti.opentok');
+var sessionId;
+var session;
+var token;
+var session;
+var publisher;
+
+function getSessionInfo() {
+	// get session from your server
+}
+
+function createOpentokSession() {
+	session = opentok.createSession({
+		sessionId: sessionId,
+		apiKey: 'YOUR_API_KEY' // works on Android but not iOS. If someone can fix that'd be great.
+	});
+	connectSession(session);
+}
+
+function disconnectOpentokSession() {
+	if (session) {
+		session.disconnect();
+		session = null;
+	}
+}
+
+function connectSession(opentokSession) {
+	if (opentokFailed) return;
+	session = opentokSession;
+	if (session) {
+		session.addEventListener('sessionConnected', sessionConnected);
+		session.addEventListener('sessionDisconnected', sessionDisconnected);
+		session.addEventListener('sessionFailed', sessionFailed);
+		session.addEventListener('streamCreated', streamCreated);
+		session.addEventListener('streamDestroyed', streamDestroyed);
+		
+		session.connect('YOUR_API_KEY', token);
+	}
+}
+
+function sessionConnected() {
+	if (Alloy.CFG.IOS) {
+		Ti.Media.setAudioSessionCategory(Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD); // when done set back to Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK
+	}
 	
-3.  Create and connect to a session
+	if (Ti.Platform.model != 'Simulator' && !publisherView) {
+		publisher = session.publish();
+		publisher.cameraPosition = 'cameraBack';
+		publisherView = publisher.createView({
+			width : Ti.UI.FILL,
+			height : Ti.UI.FILL,
+			center : 0
+		});
+		$.videoView.add(publisherView);
+		if (Alloy.CFG.Android) {
+			session.connectPublisher();
+		}
+	}
+}
 
-    ```javascript
-    var CONFIG = {
-      apiKey: '...',    // Get from your Project page on the Developer Dashboard (https://dashboard.tokbox.com/projects)
-      sessionId: '...', // Generated by server-side SDK
-      token: '...'      // Generated by server-side SDK
-    };
-    var session = opentok.createSession({ sessionId: CONFIG.sessionId });
-    session.connect(CONFIG.apiKey, CONFIG.token);
-    ```
+function sessionDisconnected() {
+	alert('opentok disconnected');
+}
 
-4.  For more details, see the [module documentation](documentation/index.md) and the 
-    [example](https://github.com/opentok/Opentok-Titanium-HelloWorld).
+function sessionFailed() {
+	alert('The session failed. Please try again later.');
+}
 
-Requirements
-------------
-*  Titanium SDK 2.1 or later
-*  iOS SDK 5.0 or later
-*  Opentok API Key. [Get one here](https://dashboard.tokbox.com/signups/new).
-*  Opentok.framework requires projects to be built for only armv7 (device); i386 (simulator), armv6, armv7s, and arm64 are not supported.
+function streamDestroyed(e) {
+	if (e && e.stream) {
+		var stream = e.stream;
+	}
+	
+	if (stream && session && stream.connection.connectionId != session.connection.connectionId) {
+		if ($.videoView && subscriberView) {
+			$.videoView.remove(subscriberView);
+			subscriberView = null;
+		}
+	}
+}
 
-Getting Help
-------------
+function streamCreated(e) {
+	var stream = e.stream;
+	if (stream.connection.connectionId === session.connection.connectionId) {
+		return;
+	}
+	
+	if (!subscriberView) {
+		var subscriber = session.subscribe(stream);
+		subscriberView = subscriber.createView({
+			width : '400px',
+			height : '300px',
+			left : 0,
+			bottom: 0
+		});
+		if (subscriberView) $.videoView.add(subscriberView);
+		if (Alloy.CFG.Android) {
+			session.connectSubscriber();
+		}
+	}
+}
 
-You can find help by posting your question to the [Github Issues](https://github.com/opentok/opentok-titanium-mobile/issues)
-page, posting on the [TokBox forums](http://www.tokbox.com/forums/), or asking in the 
-[#opentok IRC channel](http://www.tokbox.com/support/officehours).
+```
 
-Known Issues
-------------
+## License
 
-If you are experiencing any problems, please look at the [Github Issues](https://github.com/opentok/opentok-titanium-mobile/issues)
-page for known issues.
-
-Notes
------
-*  Opentok.framework can be downloaded from the [official repo](https://github.com/opentok/opentok-ios-sdk)
-*  Publishing is not supported in the Simulator because it does not have access to your webcam.
-*  The API is currently a mix of the Opentok web API, iOS specifics, and Titanium conventions. These are subject
-   to change. Suggestions welcome.
-*  Open source contributions welcome :)
-
-License
--------
 Copyright (c) 2012 TokBox, Inc.
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in 

@@ -1,0 +1,19 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+description: My module
+author: Your Name
+license: MIT-style. See LICENSE
+copyright: Copyright (c) 2013 by Your Company
+
+
+# these should not be edited
+name: androidOpentok
+moduleid: com.tokbox.ti.opentok
+guid: f6cd12aa-8902-4dca-8350-07fc2398dfd4
+platform: android
+minsdk: 3.5.1.GA
+architectures: armeabi armeabi-v7a x86

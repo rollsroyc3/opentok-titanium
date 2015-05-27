@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: cao-opentok-webrtc
+author: Your Name
+license: MIT-style. See LICENSE
+copyright: Copyright (c) 2015 by Your Company
+
+# these should not be edited
+name: cao-opentok-webrtc
+moduleid: com.tokbox.ti.opentok
+guid: 35e89f29-8ed5-4d2e-9ddc-a07b468d4ccb
+platform: iphone
+minsdk: 3.5.1.GA

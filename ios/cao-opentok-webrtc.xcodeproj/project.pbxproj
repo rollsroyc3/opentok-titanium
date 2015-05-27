@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* ComTokboxTiOpentokModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* ComTokboxTiOpentokModule.h */; };
+		24DD6CFA1134B3F500162E58 /* ComTokboxTiOpentokModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* ComTokboxTiOpentokModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.m */; };
+		3A6779371A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6779331A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.h */; };
+		3A6779381A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6779341A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.m */; };
+		3A6779391A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6779351A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.h */; };
+		3A67793A1A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6779361A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.m */; };
+		3A67793D1A9B8AAE00C2380D /* OTObjectProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A67793C1A9B8AAE00C2380D /* OTObjectProxy.h */; };
+		3A6779491A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A67793F1A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.h */; };
+		3A67794A1A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6779401A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.m */; };
+		3A67794B1A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6779411A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.h */; };
+		3A67794C1A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6779421A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.m */; };
+		3A67794D1A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6779431A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.h */; };
+		3A67794E1A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6779441A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.m */; };
+		3A67794F1A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6779451A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.h */; };
+		3A6779501A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6779461A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.m */; };
+		3A6779511A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6779471A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.h */; };
+		3A6779521A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6779481A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.m */; };
+		3AFE29971A9FC28B00C5EA04 /* OpenTok in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFE29961A9FC28B00C5EA04 /* OpenTok */; };
+		3AFE29991AA0C02400C5EA04 /* OpenTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFE29981AA0C02400C5EA04 /* OpenTok.framework */; };
+		AA747D9F0F9514B9006C5449 /* ComTokboxTiOpentok_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ComTokboxTiOpentok_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "cao-opentok-webrtc";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* ComTokboxTiOpentokModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokModule.h; path = Classes/ComTokboxTiOpentokModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* ComTokboxTiOpentokModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokModule.m; path = Classes/ComTokboxTiOpentokModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokModuleAssets.h; path = Classes/ComTokboxTiOpentokModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokModuleAssets.m; path = Classes/ComTokboxTiOpentokModuleAssets.m; sourceTree = "<group>"; };
+		3A6779331A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokVideoView.h; path = Classes/ComTokboxTiOpentokVideoView.h; sourceTree = "<group>"; };
+		3A6779341A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokVideoView.m; path = Classes/ComTokboxTiOpentokVideoView.m; sourceTree = "<group>"; };
+		3A6779351A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokVideoViewProxy.h; path = Classes/ComTokboxTiOpentokVideoViewProxy.h; sourceTree = "<group>"; };
+		3A6779361A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokVideoViewProxy.m; path = Classes/ComTokboxTiOpentokVideoViewProxy.m; sourceTree = "<group>"; };
+		3A67793C1A9B8AAE00C2380D /* OTObjectProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTObjectProxy.h; path = Classes/OTObjectProxy.h; sourceTree = "<group>"; };
+		3A67793F1A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokConnectionProxy.h; path = Classes/ComTokboxTiOpentokConnectionProxy.h; sourceTree = "<group>"; };
+		3A6779401A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokConnectionProxy.m; path = Classes/ComTokboxTiOpentokConnectionProxy.m; sourceTree = "<group>"; };
+		3A6779411A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokPublisherProxy.h; path = Classes/ComTokboxTiOpentokPublisherProxy.h; sourceTree = "<group>"; };
+		3A6779421A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokPublisherProxy.m; path = Classes/ComTokboxTiOpentokPublisherProxy.m; sourceTree = "<group>"; };
+		3A6779431A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokSessionProxy.h; path = Classes/ComTokboxTiOpentokSessionProxy.h; sourceTree = "<group>"; };
+		3A6779441A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokSessionProxy.m; path = Classes/ComTokboxTiOpentokSessionProxy.m; sourceTree = "<group>"; };
+		3A6779451A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokStreamProxy.h; path = Classes/ComTokboxTiOpentokStreamProxy.h; sourceTree = "<group>"; };
+		3A6779461A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokStreamProxy.m; path = Classes/ComTokboxTiOpentokStreamProxy.m; sourceTree = "<group>"; };
+		3A6779471A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComTokboxTiOpentokSubscriberProxy.h; path = Classes/ComTokboxTiOpentokSubscriberProxy.h; sourceTree = "<group>"; };
+		3A6779481A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComTokboxTiOpentokSubscriberProxy.m; path = Classes/ComTokboxTiOpentokSubscriberProxy.m; sourceTree = "<group>"; };
+		3AFE29961A9FC28B00C5EA04 /* OpenTok */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = OpenTok; path = OpenTok.framework/OpenTok; sourceTree = "<group>"; };
+		3AFE29981AA0C02400C5EA04 /* OpenTok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenTok.framework; sourceTree = "<group>"; };
+		78761D101B14FD2900AF12CF /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		AA747D9E0F9514B9006C5449 /* ComTokboxTiOpentok_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComTokboxTiOpentok_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libComTokboxTiOpentok.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libComTokboxTiOpentok.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AFE29991AA0C02400C5EA04 /* OpenTok.framework in Frameworks */,
+				3AFE29971A9FC28B00C5EA04 /* OpenTok in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libComTokboxTiOpentok.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* cao-opentok-webrtc */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* ComTokboxTiOpentok_Prefix.pch */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				034768DFFF38A50411DB9C8B /* Products */,
+				3A67793B1A9B8AA000C2380D /* Protocols */,
+				3A67793E1A9B8ABD00C2380D /* Proxies */,
+				3A6779291A9B8A0600C2380D /* Titanium Boilerplate */,
+				3A67792A1A9B8A2400C2380D /* Views */,
+			);
+			name = "cao-opentok-webrtc";
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78761D101B14FD2900AF12CF /* VideoToolbox.framework */,
+				3AFE29981AA0C02400C5EA04 /* OpenTok.framework */,
+				3AFE29961A9FC28B00C5EA04 /* OpenTok */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3A6779291A9B8A0600C2380D /* Titanium Boilerplate */ = {
+			isa = PBXGroup;
+			children = (
+				24DE9E0F11C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* ComTokboxTiOpentokModule.h */,
+				24DD6CF81134B3F500162E58 /* ComTokboxTiOpentokModule.m */,
+			);
+			name = "Titanium Boilerplate";
+			sourceTree = "<group>";
+		};
+		3A67792A1A9B8A2400C2380D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A6779331A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.h */,
+				3A6779341A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.m */,
+				3A6779351A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.h */,
+				3A6779361A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3A67793B1A9B8AA000C2380D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3A67793C1A9B8AAE00C2380D /* OTObjectProxy.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		3A67793E1A9B8ABD00C2380D /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+				3A67793F1A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.h */,
+				3A6779401A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.m */,
+				3A6779411A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.h */,
+				3A6779421A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.m */,
+				3A6779431A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.h */,
+				3A6779441A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.m */,
+				3A6779451A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.h */,
+				3A6779461A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.m */,
+				3A6779471A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.h */,
+				3A6779481A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.m */,
+			);
+			name = Proxies;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A67794F1A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.h in Headers */,
+				3A6779371A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.h in Headers */,
+				3A67793D1A9B8AAE00C2380D /* OTObjectProxy.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* ComTokboxTiOpentok_Prefix.pch in Headers */,
+				24DD6CF91134B3F500162E58 /* ComTokboxTiOpentokModule.h in Headers */,
+				3A6779491A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.h in Headers */,
+				3A6779391A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.h in Headers */,
+				3A67794D1A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.h in Headers */,
+				3A67794B1A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.h in Headers */,
+				3A6779511A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* cao-opentok-webrtc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "cao-opentok-webrtc" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "cao-opentok-webrtc";
+			productName = "cao-opentok-webrtc";
+			productReference = D2AAC07E0554694100DB518D /* libComTokboxTiOpentok.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "cao-opentok-webrtc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* cao-opentok-webrtc */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* cao-opentok-webrtc */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A6779521A9B8AE700C2380D /* ComTokboxTiOpentokSubscriberProxy.m in Sources */,
+				3A67794A1A9B8AE700C2380D /* ComTokboxTiOpentokConnectionProxy.m in Sources */,
+				3A67793A1A9B8A9100C2380D /* ComTokboxTiOpentokVideoViewProxy.m in Sources */,
+				3A67794C1A9B8AE700C2380D /* ComTokboxTiOpentokPublisherProxy.m in Sources */,
+				3A6779501A9B8AE700C2380D /* ComTokboxTiOpentokStreamProxy.m in Sources */,
+				24DD6CFA1134B3F500162E58 /* ComTokboxTiOpentokModule.m in Sources */,
+				3A6779381A9B8A9100C2380D /* ComTokboxTiOpentokVideoView.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* ComTokboxTiOpentokModuleAssets.m in Sources */,
+				3A67794E1A9B8AE700C2380D /* ComTokboxTiOpentokSessionProxy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* cao-opentok-webrtc */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/ComTokboxTiOpentok.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ComTokboxTiOpentok_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/OpenTok.framework/Versions/A",
+					"$(PROJECT_DIR)/OpenTok.framework",
+				);
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ComTokboxTiOpentok;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				TITANIUM_BASE_SDK = "\"$(TITANIUM_SDK)/iphone/include\"";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DSTROOT = /tmp/ComTokboxTiOpentok.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ComTokboxTiOpentok_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/OpenTok.framework/Versions/A",
+					"$(PROJECT_DIR)/OpenTok.framework",
+				);
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ComTokboxTiOpentok;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				TITANIUM_BASE_SDK = "\"$(TITANIUM_SDK)/iphone/include\"";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/ComTokboxTiOpentok.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ComTokboxTiOpentok_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ComTokboxTiOpentok;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				DSTROOT = /tmp/ComTokboxTiOpentok.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ComTokboxTiOpentok_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ComTokboxTiOpentok;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build & test";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build & test";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "cao-opentok-webrtc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "cao-opentok-webrtc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
