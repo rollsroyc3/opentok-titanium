@@ -30,6 +30,16 @@ Since I actively maintain a Titanium application that uses this module, I will c
 3. Run `ant` from the terminal.
 4. Extract the archive to your Titanium project's modules folder.
 5. Add the module in your Titanium project's tiapp.xml file.
+6. Add the following to the Android manifest section of tiapp.xml:
+```xml
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+<uses-permission android:name="android.permission.CAMERA"/>
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+<uses-feature android:name="android.hardware.camera" required="false"/>
+<uses-feature android:name="android.hardware.camera.autofocus" required="false"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+```
 
 ## Basic Usage
 
