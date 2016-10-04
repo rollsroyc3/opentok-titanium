@@ -30,16 +30,6 @@ Since I actively maintain a Titanium application that uses this module, I will c
 3. Run `ant` from the terminal.
 4. Extract the archive to your Titanium project's modules folder.
 5. Add the module in your Titanium project's tiapp.xml file.
-6. Add the following to the Android manifest section of tiapp.xml:
-```xml
-<uses-permission android:name="android.permission.WAKE_LOCK"/>
-<uses-permission android:name="android.permission.RECORD_AUDIO"/>
-<uses-permission android:name="android.permission.CAMERA"/>
-<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
-<uses-feature android:name="android.hardware.camera" required="false"/>
-<uses-feature android:name="android.hardware.camera.autofocus" required="false"/>
-<uses-permission android:name="android.permission.INTERNET"/>
-```
 
 ## Basic Usage
 
@@ -80,7 +70,7 @@ function connectSession(opentokSession) {
 		session.addEventListener('sessionFailed', sessionFailed);
 		session.addEventListener('streamCreated', streamCreated);
 		session.addEventListener('streamDestroyed', streamDestroyed);
-		
+
 		session.connect('YOUR_API_KEY', token);
 	}
 }
@@ -89,7 +79,7 @@ function sessionConnected() {
 	if (Alloy.CFG.IOS) {
 		Ti.Media.setAudioSessionCategory(Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD); // when done set back to Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK
 	}
-	
+
 	if (Ti.Platform.model != 'Simulator' && !publisherView) {
 		publisher = session.publish();
 		publisher.cameraPosition = 'cameraBack';
@@ -117,7 +107,7 @@ function streamDestroyed(e) {
 	if (e && e.stream) {
 		var stream = e.stream;
 	}
-	
+
 	if (stream && session && stream.connection.connectionId != session.connection.connectionId) {
 		if ($.videoView && subscriberView) {
 			$.videoView.remove(subscriberView);
@@ -131,7 +121,7 @@ function streamCreated(e) {
 	if (stream.connection.connectionId === session.connection.connectionId) {
 		return;
 	}
-	
+
 	if (!subscriberView) {
 		var subscriber = session.subscribe(stream);
 		subscriberView = subscriber.createView({
@@ -153,23 +143,22 @@ function streamCreated(e) {
 
 Copyright (c) 2012 TokBox, Inc.
 Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in 
-the Software without restriction, including without limitation the rights to 
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
-of the Software, and to permit persons to whom the Software is furnished to do 
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
 so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all 
+The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-The software complies with Terms of Service for the OpenTok platform described 
+The software complies with Terms of Service for the OpenTok platform described
 in http://www.tokbox.com/termsofservice
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
