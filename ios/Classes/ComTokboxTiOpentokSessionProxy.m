@@ -14,6 +14,7 @@
 #import "ComTokboxTiOpentokSubscriberProxy.h"
 #import "ComTokboxTiOpentokModule.h"
 #import "TiUtils.h"
+#import "TiBase.h"
 #import <Opentok/OTError.h>
 
 NSString * const kSessionStatusConnected = @"connected";
@@ -147,6 +148,8 @@ NSString * const kSessionStatusFailed = @"failed";
     //RELEASE_TO_NIL(_connectionProxy);
     //RELEASE_TO_NIL(_publisherProxy);
     //RELEASE_TO_NIL(_subscriberProxies);
+    RELEASE_TO_NIL(_sessionId);
+    RELEASE_TO_NIL(_apiKey);
 }
 
 #pragma mark - Objective-C only Methods
@@ -175,30 +178,7 @@ NSString * const kSessionStatusFailed = @"failed";
 {
     NSLog(@"[WARN] setSessionId called");
     // We cannot change the session id once a session has been created, go allocate a new one if needed
-    if (_session == nil) {
-        
-        NSLog(@"[WARN] _session is nil");
-        
-        //NSDictionary* params = [args objectAtIndex:0];
-        //NSLog(@"[WARN] set params");
-        NSString *stringSessionId = [TiUtils stringValue:value];
-
-//        NSString *stringSessionId = [args objectForKey:@"sessionId"];
-        NSLog(@"[WARN] set stringSessionId: %@", stringSessionId);
-//        
-//        NSString *apiKey = [args objectForKey:@"apiKey"];
-//        NSLog(@"[WARN] set apiKey: %@", apiKey);
-        
-        // Lazy initialization of backing session
-        _session = [[OTSession alloc] initWithApiKey:@"YOUR_API_KEY_HERE" sessionId:stringSessionId delegate:self];
-        NSLog(@"[WARN] called initWithApiKey");
-        
-        // TODO: remove this hack in the next release of the OpenTok iOS SDK 2.2
-        NSLog(@"[WARN] called the retain thing");
-        
-        NSLog(@"[DEBUG] session initialized with id: %@", stringSessionId);
-        
-    } else {
+    if (_session) {
         // Throw error
         // TODO: no idea if this actually works, exception handling isn't documented well for titanium.
         // http://developer.appcelerator.com/question/130582/how-to-catch-errors
@@ -206,12 +186,36 @@ NSString * const kSessionStatusFailed = @"failed";
         [self throwException:TiExceptionInternalInconsistency 
                    subreason:@"Once a Session has been given a sessionId, it cannot be changed." 
                     location:CODELOCATION];
+        return;
     }
+    NSLog(@"[WARN] _session is nil");
+
+    ENSURE_STRING(value);
+    _sessionId = [value retain];
+    NSLog(@"[WARN] set stringSessionId: %@", _sessionId);
+
+    // Will go ahead and create session if API Key also available.
+    [self establishSessionIfReady];
 }
 
-- (NSString *)sessionId
+- (id)sessionId
 {
     return _session.sessionId;
+}
+
+- (id)apiKey
+{
+    return _apiKey;
+}
+
+- (void)setApiKey:(id)key
+{
+    ENSURE_STRING(key);
+    _apiKey = [key retain];
+
+    // Will go ahead and establish session
+    // if sessionId is also known.
+    [self establishSessionIfReady];
 }
 
 - (NSArray *)streams
@@ -452,6 +456,30 @@ NSString * const kSessionStatusFailed = @"failed";
     // TODO: invalidation
     //[subscriberProxy _invalidate];
     [_subscriberProxies removeObject:subscriberProxy];
+}
+
+##pragma mark - Private Methods
+
+- (void)establishSessionIfReady
+{
+    if (!_sessionId) {
+        NSLog(@"[WARN] Delaying session creation because sessionId not yet known");
+        return;
+    }
+
+    if (!_apiKey) {
+        NSLog(@"[WARN] Delaying session creation because apiKey not yet known");
+        return;
+    }
+
+    NSLog(@"[WARN] Proceeding with session creation");
+    _session = [[OTSession alloc] initWithApiKey:_apiKey sessionId:_sessionId delegate:self];
+    NSLog(@"[WARN] called initWithApiKey");
+    
+    // TODO: remove this hack in the next release of the OpenTok iOS SDK 2.2
+    NSLog(@"[WARN] called the retain thing");
+    
+    NSLog(@"[DEBUG] session initialized with id: %@", _sessionId);
 }
 
 #pragma mark - Session Delegate Protocol
