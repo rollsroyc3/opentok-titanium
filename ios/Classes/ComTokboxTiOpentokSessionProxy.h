@@ -29,6 +29,8 @@ extern NSString * const kSessionStatusFailed;
     ComTokboxTiOpentokConnectionProxy *_connectionProxy;
     ComTokboxTiOpentokPublisherProxy *_publisherProxy;
     NSMutableArray *_subscriberProxies;
+    NSString *_apiKey;
+    NSString *_sessionId;
     
 }
 
@@ -36,7 +38,6 @@ extern NSString * const kSessionStatusFailed;
 -(void)_removeSubscriber:(ComTokboxTiOpentokSubscriberProxy *)subscriberProxy;
 
 // Properties
-@property (nonatomic, readwrite, weak) NSString *sessionId;
 @property (weak, readonly) NSArray *streams;
 @property (weak, readonly) NSString *sessionConnectionStatus;
 @property (weak, readonly) NSNumber *connectionCount;
@@ -49,6 +50,10 @@ extern NSString * const kSessionStatusFailed;
 - (void)unpublish:(id)args;
 - (id)subscribe:(id)args;
 - (void)unsubscribe:(id)args;
+- (id)apiKey;
+- (void)setApiKey(id)key;
+- (id)sessionId;
+- (void)setSessionId(id)value;
 // TODO add signaling methods
 
 
