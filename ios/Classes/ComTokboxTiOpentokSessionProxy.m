@@ -458,7 +458,7 @@ NSString * const kSessionStatusFailed = @"failed";
     [_subscriberProxies removeObject:subscriberProxy];
 }
 
-##pragma mark - Private Methods
+#pragma mark - Private Methods
 
 - (void)establishSessionIfReady
 {
