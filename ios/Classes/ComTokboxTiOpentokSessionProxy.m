@@ -148,8 +148,8 @@ NSString * const kSessionStatusFailed = @"failed";
     //RELEASE_TO_NIL(_connectionProxy);
     //RELEASE_TO_NIL(_publisherProxy);
     //RELEASE_TO_NIL(_subscriberProxies);
-    RELEASE_TO_NIL(_sessionId);
-    RELEASE_TO_NIL(_apiKey);
+    //RELEASE_TO_NIL(_sessionId);
+    //RELEASE_TO_NIL(_apiKey);
 }
 
 #pragma mark - Objective-C only Methods
@@ -191,7 +191,7 @@ NSString * const kSessionStatusFailed = @"failed";
     NSLog(@"[WARN] _session is nil");
 
     ENSURE_STRING(value);
-    _sessionId = [value retain];
+    _sessionId = value;
     NSLog(@"[WARN] set stringSessionId: %@", _sessionId);
 
     // Will go ahead and create session if API Key also available.
@@ -211,7 +211,7 @@ NSString * const kSessionStatusFailed = @"failed";
 - (void)setApiKey:(id)key
 {
     ENSURE_STRING(key);
-    _apiKey = [key retain];
+    _apiKey = key;
 
     // Will go ahead and establish session
     // if sessionId is also known.
@@ -475,9 +475,6 @@ NSString * const kSessionStatusFailed = @"failed";
     NSLog(@"[WARN] Proceeding with session creation");
     _session = [[OTSession alloc] initWithApiKey:_apiKey sessionId:_sessionId delegate:self];
     NSLog(@"[WARN] called initWithApiKey");
-    
-    // TODO: remove this hack in the next release of the OpenTok iOS SDK 2.2
-    NSLog(@"[WARN] called the retain thing");
     
     NSLog(@"[DEBUG] session initialized with id: %@", _sessionId);
 }
