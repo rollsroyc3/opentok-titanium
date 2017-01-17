@@ -51,9 +51,9 @@ extern NSString * const kSessionStatusFailed;
 - (id)subscribe:(id)args;
 - (void)unsubscribe:(id)args;
 - (id)apiKey;
-- (void)setApiKey(id)key;
+- (void)setApiKey:(id)key;
 - (id)sessionId;
-- (void)setSessionId(id)value;
+- (void)setSessionId:(id)value;
 // TODO add signaling methods
 
 
