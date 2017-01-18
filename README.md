@@ -16,16 +16,15 @@ Since I actively maintain a Titanium application that uses this module, I will c
 
 #### iOS
 
-1. Despite having multiple examples, I couldn't ever get it to work such that I could pass the Opentok API key from Titanium JavaScript to the Opentok iOS module (I'm sure it's something trivial, but I haven't felt like revisiting it). As such, `ComTokboxTiOpentokSessionProxy.m` needs to be updated with your API key. Do a search for `YOUR_API_KEY_HERE`, and replace it in two spots. If this issue can get resolved, I'll create a distribution archive for those who aren't up for building this themselves.
-2. Download the latest [Opentok iOS SDK](https://tokbox.com/opentok/libraries/client/ios/) (2.5.0 as of this writing) and include `OpenTok.framework` in the root folder.
-3. If you do not have Titanium SDK 3.5.1, open `titanium.xcconfig` and change 3.5.1 to the version you have. You probably need to at least build with 3.5.0 though, since that's when the x64 stuff happened.
-4. Run `./build.py` from the terminal.
-5. Extract the archive to your Titanium project's modules folder.
-6. Add the module in your Titanium project's tiapp.xml file.
+1. Download the latest [Opentok iOS SDK](https://tokbox.com/opentok/libraries/client/ios/) (2.10.0 as of this writing) and include `OpenTok.framework` in the root folder.
+2. If you do not have Titanium SDK 5.5.1, open `titanium.xcconfig` and change 5.5.1 to the version you have.
+3. Run `./build.py` from the terminal.
+4. Extract the archive to your Titanium project's modules folder.
+5. Add the module in your Titanium project's tiapp.xml file.
 
 #### Android
 
-1. If you don't want to build yourself, you can download the archive [here](https://github.com/jwcao/opentok-titanium/releases/download/v1.0.0_Android/com.tokbox.ti.opentok-android-1.0.0.zip) and skip to step 4. Alternatively, download the latest [Opentok Android SDK](https://tokbox.com/opentok/libraries/client/android/) (2.5.0 as of this writing), and copy the libs folder to your root directory. Move `opentok-android-sdk-2.5.0.jar` to the lib folder, and create a new folder called `armeabi-v7a` in the `libs` folder. Copy the contents of `armeabi` into `armeabi-v7a`.
+1. Download the latest [Opentok Android SDK](https://tokbox.com/opentok/libraries/client/android/) (2.10.0 as of this writing). Rename the .aar file to .zip, extract it, rename classes.jar to opentok-android-sdk-2.10.0.jar. Create a libs and lib folder in your root directory. Move opentok-android-sdk-2.10.0.jar to the lib folder. Copy content from jni folder and libjingle_peerconnection_java.jar into libs folder.
 2. Open `build.properties` and update the paths to wherever you have those things installed to. You may also need to change the Android SDK version, Titanium version, and Android NDK version, depending on what you have installed.
 3. Run `ant` from the terminal.
 4. Extract the archive to your Titanium project's modules folder.
@@ -41,6 +40,7 @@ var session;
 var token;
 var session;
 var publisher;
+var apiKey = 'YOUR_API_KEY';
 
 function getSessionInfo() {
 	// get session from your server
@@ -49,7 +49,7 @@ function getSessionInfo() {
 function createOpentokSession() {
 	session = opentok.createSession({
 		sessionId: sessionId,
-		apiKey: 'YOUR_API_KEY' // works on Android but not iOS. If someone can fix that'd be great.
+		apiKey: apiKey
 	});
 	connectSession(session);
 }
@@ -71,7 +71,7 @@ function connectSession(opentokSession) {
 		session.addEventListener('streamCreated', streamCreated);
 		session.addEventListener('streamDestroyed', streamDestroyed);
 
-		session.connect('YOUR_API_KEY', token);
+		session.connect(apiKey, token);
 	}
 }
 
